@@ -23,13 +23,11 @@ export class ActorComponent {
 
   ngOnInit() {
     this.name = this.activeatedRoute.snapshot.queryParamMap.get('name') || '';
-    console.log(this.name);
     for (const item of actors) {
       if (item.name+' '+item.surname == this.name) {
         this.actor.push(item);
       }
     }
-    console.log(this.actor);
   }
 
   backClicked() {

@@ -27,7 +27,6 @@ export class MovieComponent {
         this.movie.push(item);
       }
     }
-    console.log(this.movie);
   }
 
   getSafeVideoUrl(): SafeResourceUrl {
