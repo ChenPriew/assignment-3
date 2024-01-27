@@ -1,0 +1,92 @@
+<div class="container max-w-5xl">
+  <div class="mt-14">
+    <div style="width: 8%; cursor: pointer">
+      <a
+        (click)="backClicked()"
+        class="text-yellow-500 flex items-center text-xl font-bold"
+        ><mat-icon aria-hidden="false" fontIcon="arrow_back_ios"></mat-icon
+        >Back</a
+      >
+    </div>
+  </div>
+  <div class="bg-zinc-900 mt-4 mb-14 p-4">
+    <div *ngFor="let item of actor">
+      <div class="flex justify-between mb-4">
+        <div>
+          <div>
+            <h1 class="text-white text-4xl mb-2">
+              {{ item.name }} {{ item.surname }}
+            </h1>
+          </div>
+          <div class="flex text-gray-500 text-xs">
+            <li class="mr-4" *ngFor="let cat of actor[0].categories; let i = index" [class.special-style]="i === 0">
+              {{ cat }}
+            </li>
+          </div>
+        </div>
+        <!-- <div class="flex">
+          <div class="mr-2">
+            <p class="text-gray-500 text-xs">IMDb RATING</p>
+            <div class="flex">
+              <mat-icon
+                aria-hidden="false"
+                fontIcon="star"
+                class="text-yellow-500 mr-1"
+              ></mat-icon>
+              <p class="text-white">score</p>
+              <span class="text-gray-500 text-sm">/10</span>
+            </div>
+          </div>
+          <div>
+            <p class="text-gray-500 text-xs">YOUR RATING</p>
+            <div class="flex">
+              <mat-icon
+                style="color: rgb(66, 157, 255)"
+                aria-hidden="false"
+                fontIcon="star_outline"
+                class="text-yellow-500 mr-1"
+              ></mat-icon>
+              <p class="text-white" style="color: rgb(66, 157, 255)">Rate</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <div class="flex">
+        <div class="w-1/4 mr-2">
+          <img src="{{ item.image }}" alt="" />
+        </div>
+        <div class="w-3/4">
+          <iframe
+            width="100%"
+            height="100%"
+            [src]="getSafeVideoUrl()"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <div class="flex gap-4 text-sm">
+        <div class="my-4">
+          <button mat-stroked-button style="border-radius: 9999px">
+            Born {{ item.birthday }}
+          </button>
+        </div>
+        <div class="my-4">
+          <button mat-stroked-button style="border-radius: 9999px">
+            Age {{ item.age }}
+          </button>
+        </div>
+      </div>
+      <div>
+        <p class="text-white text-sm">
+          {{ item.biography }}
+        </p>
+      </div>
+      <br>
+      <hr class="my-4 text-gray-500" />
+    </div>
+  </div>
+  <br />
+</div>

@@ -1,0 +1,91 @@
+<div class="container max-w-5xl">
+  //Movies
+  <div class="mt-24">
+    <div class="mb-2 p-2 border-solid border-l-4 border-l-yellow-500">
+      <span class="text-white"> Top 10 on IMDb this week </span>
+    </div>
+    <div class="grid grid-cols-6 gap-4">
+      <div *ngFor="let item of movies">
+        <div class="bg-zinc-900">
+          <a routerLink="movie" [queryParams]="{ name: item.name }">
+            <img
+              src="{{ item.image }}"
+              alt=""
+              style="width: 100%; height: 240px"
+            />
+          </a>
+          <div class="p-2">
+            <div class="grid grid-cols-2 mb-2">
+              <div class="flex items-center">
+                <mat-icon
+                  aria-hidden="false"
+                  fontIcon="star"
+                  class="text-yellow-500"
+                  style="height: 100%"
+                ></mat-icon
+                ><span class="text-white">{{ item.score }}</span>
+              </div>
+              <div class="flex items-center">
+                <mat-icon
+                  aria-hidden="false"
+                  fontIcon="star_outline"
+                  style="color: rgb(66, 157, 255); height: 100%"
+                ></mat-icon>
+              </div>
+            </div>
+            <h2 class="text-white" style="height: 60px">
+              {{ item.idx }}. {{ item.name }}
+            </h2>
+            <div class="mb-2">
+              <button
+                mat-raised-button
+                style="width: 100%; color: rgb(66, 157, 255)"
+              >
+                <mat-icon aria-hidden="false" fontIcon="add"></mat-icon
+                >Watchlist
+              </button>
+            </div>
+            <button mat-button style="width: 100%">
+              <mat-icon aria-hidden="false" fontIcon="play_arrow"></mat-icon
+              >Trailer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  //Actors
+  <div class="mt-14">
+    <div class="p-2 border-solid border-l-4 border-l-yellow-500">
+      <span class="text-white flex items-center">
+        Born today<mat-icon
+          aria-hidden="false"
+          fontIcon="navigate_next"
+        ></mat-icon
+      ></span>
+    </div>
+    <p class="my-2 text-gray-500">People born on today</p>
+    <div class="grid grid-cols-6 gap-4">
+      <div *ngFor="let item of mainActors">
+        <div class="mb-24">
+          <div class="w-full h-40">
+            <a
+              routerLink="/actor"
+              [queryParams]="{ name: item.name + ' ' + item.surname }"
+            >
+              <img
+                class="object-cover w-full h-full rounded-full"
+                src="{{ item.image }}"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="grid text-center">
+            <h1 class="text-white">{{ item.name }} {{ item.surname }}</h1>
+            <p class="text-gray-500">{{ item.age }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
